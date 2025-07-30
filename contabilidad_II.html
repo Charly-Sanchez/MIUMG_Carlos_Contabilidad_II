@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Temas de Contabilidad II</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f8f9fa;
+            color: #222;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #204080;
+            color: #fff;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+        main {
+            max-width: 900px;
+            margin: 1.5rem auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+            padding: 2rem;
+        }
+        section {
+            margin-bottom: 2.5rem;
+        }
+        h2 {
+            color: #204080;
+            border-bottom: 2px solid #20408022;
+            padding-bottom: 0.3rem;
+        }
+        table.excel-sim {
+            border-collapse: collapse;
+            background: #e2eefc;
+            margin: 1rem 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: 1rem;
+        }
+        table.excel-sim th, table.excel-sim td {
+            border: 1px solid #a0b8d8;
+            padding: 0.5rem 1rem;
+            min-width: 100px;
+        }
+        table.excel-sim th {
+            background: #c6e0f5;
+            font-weight: bold;
+        }
+        .ejemplo-titulo {
+            font-weight: bold;
+            color: #1a5a99;
+            margin-top: 1rem;
+        }
+        .toggle-btn {
+            background: #204080;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 0.4rem 1rem;
+            cursor: pointer;
+            margin-top: 0.8rem;
+            font-size: 1rem;
+        }
+        .toggle-section {
+            display: none;
+        }
+        ul {
+            margin-top: 0.3rem;
+            margin-bottom: 0.3rem;
+        }
+    </style>
+    <script>
+        function toggleSection(id) {
+            const el = document.getElementById(id);
+            el.style.display = (el.style.display === 'none' || el.style.display === '') ? 'block' : 'none';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Definiciones y Temas de Contabilidad II</h1>
+        <small>Universidad de Guatemala &mdash; Ejemplos adaptados al contexto guatemalteco</small>
+    </header>
+    <main>
+        <section>
+            <h2>Contabilidad Financiera</h2>
+            <p>
+                La <b>Contabilidad Financiera</b> es una rama de la contabilidad que se encarga de registrar, clasificar y resumir las operaciones de una empresa, proporcionando información útil y confiable a usuarios externos, como inversionistas, bancos y entidades gubernamentales. Su objetivo principal es la elaboración de estados financieros que reflejan la situación económica y financiera de la empresa en un periodo determinado.
+            </p>
+            <div class="ejemplo-titulo">Ejemplo (simulación de Excel): Estado de Resultados de "Tienda El Progreso" (Quetzaltenango, Guatemala)</div>
+            <table class="excel-sim">
+                <tr>
+                    <th>Concepto</th><th>Q</th>
+                </tr>
+                <tr>
+                    <td>Ventas</td><td>20,000</td>
+                </tr>
+                <tr>
+                    <td>Costos de Ventas</td><td>12,000</td>
+                </tr>
+                <tr>
+                    <td><b>Utilidad Bruta</b></td><td><b>8,000</b></td>
+                </tr>
+                <tr>
+                    <td>Gastos Operativos</td><td>3,000</td>
+                </tr>
+                <tr>
+                    <td><b>Utilidad Neta</b></td><td><b>5,000</b></td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h2>Contabilidad Administrativa</h2>
+            <p>
+                La <b>Contabilidad Administrativa</b> es utilizada internamente por la administración de la empresa para la planeación, control y toma de decisiones. Se enfoca en información detallada y específica para ayudar a los gerentes a mejorar la eficiencia y rentabilidad de la empresa.
+            </p>
+            <button class="toggle-btn" onclick="toggleSection('contaAdminEjemplo')">Mostrar ejemplo</button>
+            <div id="contaAdminEjemplo" class="toggle-section">
+                <div class="ejemplo-titulo">Ejemplo (simulación de Excel): Análisis de Costos de Producción Mensual</div>
+                <table class="excel-sim">
+                    <tr>
+                        <th>Producto</th><th>Cantidad Producida</th><th>Costo Unitario (Q)</th><th>Total (Q)</th>
+                    </tr>
+                    <tr>
+                        <td>Pan Francés</td><td>1,500</td><td>1.20</td><td>1,800</td>
+                    </tr>
+                    <tr>
+                        <td>Pan Dulce</td><td>800</td><td>1.50</td><td>1,200</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section>
+            <h2>Contabilidad de Costos</h2>
+            <p>
+                La <b>Contabilidad de Costos</b> se especializa en identificar, calcular y analizar los costos de producción de bienes o servicios. Permite a la empresa conocer cuánto cuesta producir un producto o prestar un servicio, y ayuda en la toma de decisiones para optimizar recursos y establecer precios adecuados.
+            </p>
+            <div class="ejemplo-titulo">Ejemplo (simulación de Excel): Cálculo de costo de fabricación de camisas</div>
+            <table class="excel-sim">
+                <tr>
+                    <th>Concepto</th><th>Q</th>
+                </tr>
+                <tr>
+                    <td>Materia Prima (Telas)</td><td>3,000</td>
+                </tr>
+                <tr>
+                    <td>Mano de Obra Directa</td><td>2,000</td>
+                </tr>
+                <tr>
+                    <td>Costos Indirectos</td><td>1,000</td>
+                </tr>
+                <tr>
+                    <td><b>Total Costos</b></td><td><b>6,000</b></td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h2>Confiabilidad</h2>
+            <p>
+                La <b>confiabilidad</b> en la contabilidad se refiere a la cualidad de la información contable de ser verídica, comprobable y exenta de errores significativos. Los datos deben estar respaldados por evidencias (facturas, recibos, contratos) y ser representativos de la realidad económica de la empresa.
+            </p>
+        </section>
+        <section>
+            <h2>Oportunidad</h2>
+            <p>
+                La <b>oportunidad</b> es la característica de la información contable de estar disponible en el momento adecuado para la toma de decisiones. La información debe presentarse a tiempo para que sea útil y relevante.
+            </p>
+        </section>
+        <section>
+            <h2>Utilidad</h2>
+            <p>
+                La <b>utilidad</b> implica que la información contable debe ser relevante, comprensible y servir para la toma de decisiones por parte de los usuarios. Debe ayudar a predecir, comparar y evaluar situaciones económicas.
+            </p>
+        </section>
+        <section>
+            <h2>Diferencia entre Contabilidad Financiera y Administrativa</h2>
+            <ul>
+                <li><b>Contabilidad Financiera:</b> Orientada a usuarios externos (bancos, SAT, inversionistas). Elabora estados financieros bajo normativas legales.</li>
+                <li><b>Contabilidad Administrativa:</b> Orientada a usuarios internos (gerentes, directores). Proporciona informes detallados para la gestión y la toma de decisiones.</li>
+            </ul>
+            <div class="ejemplo-titulo">Ejemplo de diferencia</div>
+            <table class="excel-sim">
+                <tr>
+                    <th>Contabilidad Financiera</th><th>Contabilidad Administrativa</th>
+                </tr>
+                <tr>
+                    <td>Balance General anual para la SAT</td>
+                    <td>Reporte mensual de costos de producción</td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h2>Usuarios de la Información Contable</h2>
+            <ul>
+                <li>Propietarios y socios</li>
+                <li>Gerentes y administradores</li>
+                <li>Empleados</li>
+                <li>Inversionistas</li>
+                <li>Entidades gubernamentales (SAT, IGSS)</li>
+                <li>Bancos y acreedores</li>
+                <li>Clientes y proveedores</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Elementos del Costo</h2>
+            <ul>
+                <li><b>Materia Prima Directa:</b> Materiales que se convierten en parte del producto terminado (ej. harina para panadería).</li>
+                <li><b>Mano de Obra Directa:</b> Sueldos de empleados que trabajan directamente en la producción.</li>
+                <li><b>Costos Indirectos de Fabricación:</b> Costos que no se pueden identificar directamente con el producto (ej. energía eléctrica de la fábrica).</li>
+            </ul>
+            <button class="toggle-btn" onclick="toggleSection('ejemploElementosCosto')">Mostrar ejemplo</button>
+            <div id="ejemploElementosCosto" class="toggle-section">
+                <div class="ejemplo-titulo">Ejemplo (simulación de Excel): Costo de producir 100 pasteles</div>
+                <table class="excel-sim">
+                    <tr>
+                        <th>Elemento</th><th>Monto (Q)</th>
+                    </tr>
+                    <tr>
+                        <td>Harina (Materia Prima Directa)</td><td>500</td>
+                    </tr>
+                    <tr>
+                        <td>Pago a panaderos (Mano de Obra Directa)</td><td>400</td>
+                    </tr>
+                    <tr>
+                        <td>Luz de la panadería (Indirecto)</td><td>100</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section>
+            <h2>Costos de Administración</h2>
+            <p>
+                Son los costos relacionados con la dirección y el control operativo de la empresa, pero que no están vinculados directamente a la producción. Ejemplos: sueldos del gerente, papelería, servicios administrativos.
+            </p>
+            <div class="ejemplo-titulo">Ejemplo (simulación de Excel): Costos administrativos mensuales</div>
+            <table class="excel-sim">
+                <tr>
+                    <th>Concepto</th><th>Monto (Q)</th>
+                </tr>
+                <tr>
+                    <td>Sueldos administrativos</td><td>2,000</td>
+                </tr>
+                <tr>
+                    <td>Papelería</td><td>250</td>
+                </tr>
+                <tr>
+                    <td>Servicios básicos (agua, luz oficina)</td><td>300</td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h2>Costos Directos</h2>
+            <p>
+                Son aquellos que se pueden identificar plenamente con un objeto de costo específico (producto, orden, área). Por ejemplo, el salario del panadero en la producción de pan.
+            </p>
+        </section>
+        <section>
+            <h2>Costos Históricos</h2>
+            <p>
+                Son los costos que realmente se han incurrido en la producción de un bien o servicio. Se registran después de haber ocurrido las operaciones.
+            </p>
+            <div class="ejemplo-titulo">Ejemplo:</div>
+            <table class="excel-sim">
+                <tr>
+                    <th>Concepto</th><th>Costo Real (Q)</th>
+                </tr>
+                <tr>
+                    <td>Harina</td><td>300</td>
+                </tr>
+                <tr>
+                    <td>Azúcar</td><td>100</td>
+                </tr>
+                <tr>
+                    <td>Mano de obra</td><td>600</td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h2>Costos Predeterminados</h2>
+            <p>
+                Son estimaciones o presupuestos de los costos antes de que ocurran las operaciones. Sirven como base para controlar y comparar con los costos reales.
+            </p>
+            <div class="ejemplo-titulo">Ejemplo:</div>
+            <table class="excel-sim">
+                <tr>
+                    <th>Concepto</th><th>Costo Estimado (Q)</th>
+                </tr>
+                <tr>
+                    <td>Harina</td><td>350</td>
+                </tr>
+                <tr>
+                    <td>Azúcar</td><td>120</td>
+                </tr>
+                <tr>
+                    <td>Mano de obra</td><td>650</td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h2>Costos Fijos</h2>
+            <p>
+                Son aquellos que permanecen constantes, independientemente del volumen de producción. Ejemplo: alquiler de la fábrica, sueldos fijos.
+            </p>
+            <div class="ejemplo-titulo">Ejemplo:</div>
+            <table class="excel-sim">
+                <tr>
+                    <th>Concepto</th><th>Monto (Q)</th>
+                </tr>
+                <tr>
+                    <td>Alquiler de local</td><td>1,500</td>
+                </tr>
+                <tr>
+                    <td>Sueldos fijos</td><td>2,000</td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h2>Costos Variables</h2>
+            <p>
+                Son aquellos que cambian en proporción directa al volumen de producción. Ejemplo: materia prima, pago de horas extras.
+            </p>
+            <div class="ejemplo-titulo">Ejemplo:</div>
+            <table class="excel-sim">
+                <tr>
+                    <th>Concepto</th><th>Monto (Q)</th>
+                </tr>
+                <tr>
+                    <td>Harina (por cada pastel)</td><td>3</td>
+                </tr>
+                <tr>
+                    <td>Azúcar (por cada pastel)</td><td>2</td>
+                </tr>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
