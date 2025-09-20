@@ -1,340 +1,300 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Temas de Contabilidad II</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #f8f9fa;
-            color: #222;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: #204080;
-            color: #fff;
-            padding: 1.5rem 2rem;
-            text-align: center;
-        }
-        main {
-            max-width: 900px;
-            margin: 1.5rem auto;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-            padding: 2rem;
-        }
-        section {
-            margin-bottom: 2.5rem;
-        }
-        h2 {
-            color: #204080;
-            border-bottom: 2px solid #20408022;
-            padding-bottom: 0.3rem;
-        }
-        table.excel-sim {
-            border-collapse: collapse;
-            background: #e2eefc;
-            margin: 1rem 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            font-size: 1rem;
-        }
-        table.excel-sim th, table.excel-sim td {
-            border: 1px solid #a0b8d8;
-            padding: 0.5rem 1rem;
-            min-width: 100px;
-        }
-        table.excel-sim th {
-            background: #c6e0f5;
-            font-weight: bold;
-        }
-        .ejemplo-titulo {
-            font-weight: bold;
-            color: #1a5a99;
-            margin-top: 1rem;
-        }
-        .toggle-btn {
-            background: #204080;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            padding: 0.4rem 1rem;
-            cursor: pointer;
-            margin-top: 0.8rem;
-            font-size: 1rem;
-        }
-        .toggle-section {
-            display: none;
-        }
-        ul {
-            margin-top: 0.3rem;
-            margin-bottom: 0.3rem;
-        }
-    </style>
-    <script>
-        function toggleSection(id) {
-            const el = document.getElementById(id);
-            el.style.display = (el.style.display === 'none' || el.style.display === '') ? 'block' : 'none';
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conceptos de Costos con Gráfica Interactiva</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background: #f4f4f4;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    section {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .ejemplo {
+      background: #eaf2f8;
+      padding: 10px;
+      border-left: 5px solid #2980b9;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    .grafica {
+      text-align: center;
+    }
+    img {
+      max-width: 100%;
+    }
+    .controls label {
+      display:inline-block;
+      margin-right:8px;
+    }
+    .controls input[type=range]{
+      width:200px;
+      vertical-align:middle;
+    }
+    .vals{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:8px;
+      font-size:0.9rem;
+    }
+    .val{background:#eef4ff;padding:8px;border-radius:6px}
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Definiciones y Temas de Contabilidad II</h1>
-        <small>Universidad Mariano Gálvez &mdash; Carlos Armando Sánchez Rodríguez </small>
-    </header>
-    <main>
-        <section>
-            <h2>Contabilidad Financiera</h2>
-            <p>
-                La <b>Contabilidad Financiera</b> es una rama de la contabilidad que se encarga de registrar, clasificar y resumir las operaciones de una empresa, proporcionando información útil y confiable a usuarios externos, como inversionistas, bancos y entidades gubernamentales. Su objetivo principal es la elaboración de estados financieros que reflejan la situación económica y financiera de la empresa en un periodo determinado.
-            </p>
-            <div class="ejemplo-titulo">Ejemplo (simulación de Excel): Estado de Resultados de "Tienda El Progreso" (Quetzaltenango, Guatemala)</div>
-            <table class="excel-sim">
-                <tr>
-                    <th>Concepto</th><th>Q</th>
-                </tr>
-                <tr>
-                    <td>Ventas</td><td>20,000</td>
-                </tr>
-                <tr>
-                    <td>Costos de Ventas</td><td>12,000</td>
-                </tr>
-                <tr>
-                    <td><b>Utilidad Bruta</b></td><td><b>8,000</b></td>
-                </tr>
-                <tr>
-                    <td>Gastos Operativos</td><td>3,000</td>
-                </tr>
-                <tr>
-                    <td><b>Utilidad Neta</b></td><td><b>5,000</b></td>
-                </tr>
-            </table>
-        </section>
-        <section>
-            <h2>Contabilidad Administrativa</h2>
-            <p>
-                La <b>Contabilidad Administrativa</b> es utilizada internamente por la administración de la empresa para la planeación, control y toma de decisiones. Se enfoca en información detallada y específica para ayudar a los gerentes a mejorar la eficiencia y rentabilidad de la empresa.
-            </p>
-            <button class="toggle-btn" onclick="toggleSection('contaAdminEjemplo')">Mostrar ejemplo</button>
-            <div id="contaAdminEjemplo" class="toggle-section">
-                <div class="ejemplo-titulo">Ejemplo (simulación de Excel): Análisis de Costos de Producción Mensual</div>
-                <table class="excel-sim">
-                    <tr>
-                        <th>Producto</th><th>Cantidad Producida</th><th>Costo Unitario (Q)</th><th>Total (Q)</th>
-                    </tr>
-                    <tr>
-                        <td>Pan Francés</td><td>1,500</td><td>1.20</td><td>1,800</td>
-                    </tr>
-                    <tr>
-                        <td>Pan Dulce</td><td>800</td><td>1.50</td><td>1,200</td>
-                    </tr>
-                </table>
-            </div>
-        </section>
-        <section>
-            <h2>Contabilidad de Costos</h2>
-            <p>
-                La <b>Contabilidad de Costos</b> se especializa en identificar, calcular y analizar los costos de producción de bienes o servicios. Permite a la empresa conocer cuánto cuesta producir un producto o prestar un servicio, y ayuda en la toma de decisiones para optimizar recursos y establecer precios adecuados.
-            </p>
-            <div class="ejemplo-titulo">Ejemplo (simulación de Excel): Cálculo de costo de fabricación de camisas</div>
-            <table class="excel-sim">
-                <tr>
-                    <th>Concepto</th><th>Q</th>
-                </tr>
-                <tr>
-                    <td>Materia Prima (Telas)</td><td>3,000</td>
-                </tr>
-                <tr>
-                    <td>Mano de Obra Directa</td><td>2,000</td>
-                </tr>
-                <tr>
-                    <td>Costos Indirectos</td><td>1,000</td>
-                </tr>
-                <tr>
-                    <td><b>Total Costos</b></td><td><b>6,000</b></td>
-                </tr>
-            </table>
-        </section>
-        <section>
-            <h2>Confiabilidad</h2>
-            <p>
-                La <b>confiabilidad</b> en la contabilidad se refiere a la cualidad de la información contable de ser verídica, comprobable y exenta de errores significativos. Los datos deben estar respaldados por evidencias (facturas, recibos, contratos) y ser representativos de la realidad económica de la empresa.
-            </p>
-        </section>
-        <section>
-            <h2>Oportunidad</h2>
-            <p>
-                La <b>oportunidad</b> es la característica de la información contable de estar disponible en el momento adecuado para la toma de decisiones. La información debe presentarse a tiempo para que sea útil y relevante.
-            </p>
-        </section>
-        <section>
-            <h2>Utilidad</h2>
-            <p>
-                La <b>utilidad</b> implica que la información contable debe ser relevante, comprensible y servir para la toma de decisiones por parte de los usuarios. Debe ayudar a predecir, comparar y evaluar situaciones económicas.
-            </p>
-        </section>
-        <section>
-            <h2>Diferencia entre Contabilidad Financiera y Administrativa</h2>
-            <ul>
-                <li><b>Contabilidad Financiera:</b> Orientada a usuarios externos (bancos, SAT, inversionistas). Elabora estados financieros bajo normativas legales.</li>
-                <li><b>Contabilidad Administrativa:</b> Orientada a usuarios internos (gerentes, directores). Proporciona informes detallados para la gestión y la toma de decisiones.</li>
-            </ul>
-            <div class="ejemplo-titulo">Ejemplo de diferencia</div>
-            <table class="excel-sim">
-                <tr>
-                    <th>Contabilidad Financiera</th><th>Contabilidad Administrativa</th>
-                </tr>
-                <tr>
-                    <td>Balance General anual para la SAT</td>
-                    <td>Reporte mensual de costos de producción</td>
-                </tr>
-            </table>
-        </section>
-        <section>
-            <h2>Usuarios de la Información Contable</h2>
-            <ul>
-                <li>Propietarios y socios</li>
-                <li>Gerentes y administradores</li>
-                <li>Empleados</li>
-                <li>Inversionistas</li>
-                <li>Entidades gubernamentales (SAT, IGSS)</li>
-                <li>Bancos y acreedores</li>
-                <li>Clientes y proveedores</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Elementos del Costo</h2>
-            <ul>
-                <li><b>Materia Prima Directa:</b> Materiales que se convierten en parte del producto terminado (ej. harina para panadería).</li>
-                <li><b>Mano de Obra Directa:</b> Sueldos de empleados que trabajan directamente en la producción.</li>
-                <li><b>Costos Indirectos de Fabricación:</b> Costos que no se pueden identificar directamente con el producto (ej. energía eléctrica de la fábrica).</li>
-            </ul>
-            <button class="toggle-btn" onclick="toggleSection('ejemploElementosCosto')">Mostrar ejemplo</button>
-            <div id="ejemploElementosCosto" class="toggle-section">
-                <div class="ejemplo-titulo">Ejemplo (simulación de Excel): Costo de producir 100 pasteles</div>
-                <table class="excel-sim">
-                    <tr>
-                        <th>Elemento</th><th>Monto (Q)</th>
-                    </tr>
-                    <tr>
-                        <td>Harina (Materia Prima Directa)</td><td>500</td>
-                    </tr>
-                    <tr>
-                        <td>Pago a panaderos (Mano de Obra Directa)</td><td>400</td>
-                    </tr>
-                    <tr>
-                        <td>Luz de la panadería (Indirecto)</td><td>100</td>
-                    </tr>
-                </table>
-            </div>
-        </section>
-        <section>
-            <h2>Costos de Administración</h2>
-            <p>
-                Son los costos relacionados con la dirección y el control operativo de la empresa, pero que no están vinculados directamente a la producción. Ejemplos: sueldos del gerente, papelería, servicios administrativos.
-            </p>
-            <div class="ejemplo-titulo">Ejemplo (simulación de Excel): Costos administrativos mensuales</div>
-            <table class="excel-sim">
-                <tr>
-                    <th>Concepto</th><th>Monto (Q)</th>
-                </tr>
-                <tr>
-                    <td>Sueldos administrativos</td><td>2,000</td>
-                </tr>
-                <tr>
-                    <td>Papelería</td><td>250</td>
-                </tr>
-                <tr>
-                    <td>Servicios básicos (agua, luz oficina)</td><td>300</td>
-                </tr>
-            </table>
-        </section>
-        <section>
-            <h2>Costos Directos</h2>
-            <p>
-                Son aquellos que se pueden identificar plenamente con un objeto de costo específico (producto, orden, área). Por ejemplo, el salario del panadero en la producción de pan.
-            </p>
-        </section>
-        <section>
-            <h2>Costos Históricos</h2>
-            <p>
-                Son los costos que realmente se han incurrido en la producción de un bien o servicio. Se registran después de haber ocurrido las operaciones.
-            </p>
-            <div class="ejemplo-titulo">Ejemplo:</div>
-            <table class="excel-sim">
-                <tr>
-                    <th>Concepto</th><th>Costo Real (Q)</th>
-                </tr>
-                <tr>
-                    <td>Harina</td><td>300</td>
-                </tr>
-                <tr>
-                    <td>Azúcar</td><td>100</td>
-                </tr>
-                <tr>
-                    <td>Mano de obra</td><td>600</td>
-                </tr>
-            </table>
-        </section>
-        <section>
-            <h2>Costos Predeterminados</h2>
-            <p>
-                Son estimaciones o presupuestos de los costos antes de que ocurran las operaciones. Sirven como base para controlar y comparar con los costos reales.
-            </p>
-            <div class="ejemplo-titulo">Ejemplo:</div>
-            <table class="excel-sim">
-                <tr>
-                    <th>Concepto</th><th>Costo Estimado (Q)</th>
-                </tr>
-                <tr>
-                    <td>Harina</td><td>350</td>
-                </tr>
-                <tr>
-                    <td>Azúcar</td><td>120</td>
-                </tr>
-                <tr>
-                    <td>Mano de obra</td><td>650</td>
-                </tr>
-            </table>
-        </section>
-        <section>
-            <h2>Costos Fijos</h2>
-            <p>
-                Son aquellos que permanecen constantes, independientemente del volumen de producción. Ejemplo: alquiler de la fábrica, sueldos fijos.
-            </p>
-            <div class="ejemplo-titulo">Ejemplo:</div>
-            <table class="excel-sim">
-                <tr>
-                    <th>Concepto</th><th>Monto (Q)</th>
-                </tr>
-                <tr>
-                    <td>Alquiler de local</td><td>1,500</td>
-                </tr>
-                <tr>
-                    <td>Sueldos fijos</td><td>2,000</td>
-                </tr>
-            </table>
-        </section>
-        <section>
-            <h2>Costos Variables</h2>
-            <p>
-                Son aquellos que cambian en proporción directa al volumen de producción. Ejemplo: materia prima, pago de horas extras.
-            </p>
-            <div class="ejemplo-titulo">Ejemplo:</div>
-            <table class="excel-sim">
-                <tr>
-                    <th>Concepto</th><th>Monto (Q)</th>
-                </tr>
-                <tr>
-                    <td>Harina (por cada pastel)</td><td>3</td>
-                </tr>
-                <tr>
-                    <td>Azúcar (por cada pastel)</td><td>2</td>
-                </tr>
-            </table>
-        </section>
-    </main>
+
+  <h1>Conceptos y Definiciones de Costos</h1>
+
+  <section>
+    <h2>Costos Predeterminados</h2>
+    <p>Son costos que se establecen antes de realizar la producción o servicio. Se utilizan como referencia para controlar y comparar con los costos reales.</p>
+    <div class="ejemplo"><strong>Ejemplo:</strong> Antes de producir 100 camisetas, se calcula que el costo de materiales y mano de obra será de Q5,000.</div>
+  </section>
+
+  <section>
+    <h2>Elementos del Costo</h2>
+    <p>Son los componentes básicos que integran el costo de un producto o servicio:</p>
+    <ul>
+      <li>Materia prima directa</li>
+      <li>Mano de obra directa</li>
+      <li>Costos indirectos de fabricación</li>
+    </ul>
+    <div class="ejemplo"><strong>Ejemplo:</strong> Para una mesa: madera (materia prima), carpintero (mano de obra), electricidad y barniz (costos indirectos).</div>
+  </section>
+
+  <section>
+    <h2>Costos Fijos</h2>
+    <p>Son costos que no cambian con el volumen de producción. Se pagan independientemente de producir mucho o poco.</p>
+    <div class="ejemplo"><strong>Ejemplo:</strong> Renta mensual del taller Q2,000.</div>
+  </section>
+
+  <section>
+    <h2>Costos Variables</h2>
+    <p>Son costos que varían en proporción al nivel de producción. A mayor producción, mayor costo.</p>
+    <div class="ejemplo"><strong>Ejemplo:</strong> Consumo de materia prima: más producción implica comprar más materiales.</div>
+  </section>
+
+  <section>
+    <h2>Costos Directos</h2>
+    <p>Son aquellos que se pueden identificar directamente con un producto o servicio.</p>
+    <div class="ejemplo"><strong>Ejemplo:</strong> El costo de la tela en una camisa.</div>
+  </section>
+
+  <section>
+    <h2>Punto de Equilibrio</h2>
+    <p>Es el nivel de ventas en el que los ingresos son iguales a los costos totales (no hay ni pérdida ni ganancia).</p>
+    <div class="ejemplo"><strong>Ejemplo:</strong> Si para producir 1,000 unidades los costos son Q10,000 y el precio de venta es Q20 por unidad, el punto de equilibrio son 500 unidades.</div>
+  </section>
+
+  <section>
+    <h2>Elementos que Conforman el Costo Directo</h2>
+    <ul>
+      <li>Materiales directos</li>
+      <li>Mano de obra directa</li>
+    </ul>
+    <div class="ejemplo"><strong>Ejemplo:</strong> En un pastel: harina, azúcar y pago al pastelero (costos directos).</div>
+  </section>
+
+  <section>
+    <h2>Análisis Costo-Volumen-Utilidad (CVU)</h2>
+    <p>Es una herramienta que muestra cómo cambian las utilidades cuando cambian los costos y el volumen de ventas. Ayuda a decidir precios y producción.</p>
+    <div class="ejemplo"><strong>Ejemplo:</strong> Si aumenta el costo de la materia prima, el CVU permite calcular cuántas unidades adicionales deben venderse para mantener la misma utilidad.</div>
+  </section>
+
+  <section>
+    <h2>Presupuestos</h2>
+    <p>Son planes financieros que estiman los ingresos y gastos futuros en un periodo determinado.</p>
+    <div class="ejemplo"><strong>Ejemplo:</strong> Presupuesto mensual de producción de Q50,000 para cubrir materiales, salarios y otros gastos.</div>
+  </section>
+
+  <section>
+    <h2>Resultado del Cruce de la Línea del Costo Variable y las Ventas</h2>
+    <p>Este punto representa generalmente el <strong>punto de equilibrio parcial</strong>: cuando las ventas igualan el costo variable, es decir, se cubren los costos variables pero aún no se cubren los costos fijos. A partir de ahí, cada venta adicional contribuye a cubrir costos fijos y luego a generar utilidad.</p>
+  </section>
+
+  <section>
+    <h2>Gráfica interactiva de costos (Q) y Punto de Equilibrio</h2>
+    <p>Visualice las líneas de <strong>Ventas</strong> y <strong>Costo Total</strong>, y el punto donde se cruzan (punto de equilibrio). Use los controles para cambiar precio, costo variable por unidad y costos fijos.</p>
+    <div class="controls">
+      <label>Precio por unidad (Q): <strong id="priceVal">50</strong></label>
+      <input id="price" type="range" min="10" max="150" value="50">
+
+      <label style="margin-left:16px">Costo variable/unidad (Q): <strong id="varVal">20</strong></label>
+      <input id="variable" type="range" min="1" max="120" value="20">
+
+      <label style="margin-left:16px">Costos fijos (Q): <strong id="fixedVal">2000</strong></label>
+      <input id="fixed" type="range" min="0" max="10000" step="50" value="2000">
+    </div>
+    <div class="vals">
+      <div class="val">Rango de unidades mostrado: <strong id="unitsRange">0–100</strong></div>
+      <div class="val">Interpretación: la intersección muestra el nivel de unidades donde <em>ventas = costo total</em> (sin utilidad ni pérdida).</div>
+    </div>
+    <div class="grafica">
+      <canvas id="costChart" width="900" height="420"></canvas>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+  <script>
+    const initial = { price:50, variable:20, fixed:2000, maxUnits:100 };
+
+    function generateSeries(price, variable, fixed, maxUnits){
+      const labels = [], ventas = [], costoVariableTotal = [], costoTotal = [];
+      for(let u=0; u<=maxUnits; u++){
+        labels.push(u);
+        ventas.push(price * u);
+        costoVariableTotal.push(variable * u);
+        costoTotal.push(fixed + (variable * u));
+      }
+      return { labels, ventas, costoVariableTotal, costoTotal };
+    }
+
+    function calcularPuntoEquilibrio(price, variable, fixed){
+      const contribucion = price - variable;
+      if(contribucion <= 0) return null;
+      return fixed / contribucion;
+    }
+
+    const breakEvenPlugin = {
+      id: 'breakEvenLine',
+      afterDraw(chart, args, options){
+        if(!options || options.x === null) return;
+        const ctx = chart.ctx;
+        const xScale = chart.scales.x;
+        const yScale = chart.scales.y;
+        const px = xScale.getPixelForValue(options.x);
+        ctx.save();
+        ctx.beginPath();
+        ctx.setLineDash([6,6]);
+        ctx.moveTo(px, yScale.top);
+        ctx.lineTo(px, yScale.bottom);
+        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = 'rgba(220,53,69,0.9)';
+        ctx.stroke();
+        ctx.restore();
+        ctx.fillStyle = 'rgba(220,53,69,0.95)';
+        ctx.font = '12px sans-serif';
+        const texto = 'Punto equilibrio ≈ ' + (Math.round(options.x*100)/100) + ' u';
+        const textWidth = ctx.measureText(texto).width;
+        const labelX = Math.min(Math.max(px - textWidth/2, 6), chart.width - textWidth - 6);
+        ctx.fillText(texto, labelX, yScale.top + 14);
+      }
+    };
+
+    const ctx = document.getElementById('costChart').getContext('2d');
+    Chart.register(breakEvenPlugin);
+    let chart = null;
+
+    function drawChart({price, variable, fixed, maxUnits}){
+      const series = generateSeries(price, variable, fixed, maxUnits);
+      const breakEvenUnits = calcularPuntoEquilibrio(price, variable, fixed);
+      const datasets = [
+        {
+          label: 'Ventas (Q)',
+          data: series.ventas,
+          tension: 0.15,
+          borderWidth: 2,
+          fill: false,
+        },
+        {
+          label: 'Costo Total (Q)',
+          data: series.costoTotal,
+          tension: 0.15,
+          borderWidth: 2,
+          fill: false,
+        },
+        {
+          label: 'Costo Variable Total (Q)',
+          data: series.costoVariableTotal,
+          tension: 0.15,
+          borderWidth: 1.2,
+          borderDash: [5,5],
+          fill: false,
+        }
+      ];
+
+      if(chart) chart.destroy();
+
+      chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: series.labels,
+          datasets: datasets
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: {mode:'index', intersect:false},
+          plugins: {
+            legend: {position:'top'},
+            tooltip: {
+              callbacks: {
+                label: function(context){
+                  return context.dataset.label + ': Q' + context.formattedValue;
+                }
+              }
+            },
+            breakEvenLine: { x: (breakEvenUnits === null ? null : breakEvenUnits) }
+          },
+          scales: {
+            x:{
+              title:{display:true,text:'Unidades'},
+              ticks: {maxRotation:0}
+            },
+            y:{
+              title:{display:true,text:'Quetzales (Q)'},
+              beginAtZero:true
+            }
+          }
+        }
+      });
+      return breakEvenUnits;
+    }
+
+    function init(){
+      const priceInput = document.getElementById('price');
+      const varInput = document.getElementById('variable');
+      const fixedInput = document.getElementById('fixed');
+      const priceVal = document.getElementById('priceVal');
+      const varVal = document.getElementById('varVal');
+      const fixedVal = document.getElementById('fixedVal');
+      const unitsRange = document.getElementById('unitsRange');
+
+      function update(){
+        const price = Number(priceInput.value);
+        const variable = Number(varInput.value);
+        const fixed = Number(fixedInput.value);
+        priceVal.textContent = price;
+        varVal.textContent = variable;
+        fixedVal.textContent = fixed;
+        const breakEven = drawChart({price, variable, fixed, maxUnits:100});
+        if(breakEven === null){
+          unitsRange.textContent = '0–100 (margen por unidad ≤ 0; punto de equilibrio no alcanzable)';
+        } else {
+          unitsRange.textContent = '0–100 (Punto equilibrio ≈ ' + (Math.round(breakEven*100)/100) + ' unidades)';
+        }
+      }
+
+      priceInput.addEventListener('input', update);
+      varInput.addEventListener('input', update);
+      fixedInput.addEventListener('input', update);
+      update();
+    }
+
+    window.onload = init;
+  </script>
+
 </body>
 </html>
